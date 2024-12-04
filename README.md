@@ -47,8 +47,11 @@ To set up the Goodcabs Performance Dashboard locally, follow these steps:
 3. **Run the Application**:
    Start the Streamlit app using:
    ```bash
-   streamlit run Solution/main.py
+   streamlit run streamlit_app.py
    ```
+   For FastAPI:
+   ```bash
+   uvicorn main:app --reload
 
 ## Some Analysis
 
