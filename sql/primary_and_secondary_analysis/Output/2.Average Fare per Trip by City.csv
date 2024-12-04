@@ -1,0 +1,11 @@
+city_name,avg_fare,avg_distance,fare_per_km,fare_rank_desc,fare_rank_asc
+Jaipur,483.92,30.02,16.25,1,10
+Kochi,335.25,24.07,14.13,2,9
+Chandigarh,283.69,23.52,12.18,3,8
+Visakhapatnam,282.67,22.55,12.70,4,7
+Mysore,249.71,16.50,15.40,5,6
+Indore,179.84,16.50,11.07,6,5
+Coimbatore,166.98,14.98,11.30,7,4
+Lucknow,147.18,12.51,12.14,8,3
+Vadodara,118.57,11.52,10.54,9,2
+Surat,117.27,11.00,10.92,10,1

@@ -1,0 +1,10 @@
+[server]
+headless = true
+runOnSave = true
+
+[theme]
+primaryColor = "#DAA520"  # Goldenrod
+secondaryBackgroundColor = "#000000"  # Dark for contrast
+base = "dark"
+textColor = "white"
+backgroundColor = "black"
