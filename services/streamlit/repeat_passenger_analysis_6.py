@@ -1,8 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import io
-import base64
 from config.__init__ import DataPaths
 import streamlit as st
 import altair as alt
