@@ -1,8 +1,9 @@
 mysql-connector-python>=8.0.26
-pandas>=1.3.0
-matplotlib>=3.4.3
-seaborn>=0.11.2
 streamlit
+streamlit-option-menu
+numpy
+pandas
+altair
 python-dotenv
 fastapi
 uvicorn
