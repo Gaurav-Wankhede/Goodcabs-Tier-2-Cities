@@ -6,6 +6,7 @@ import math
 
 class CityPerformanceService:
     @staticmethod
+    @st.cache_data
     def analyze_city_performance():
         """
         Analyze city performance metrics.
@@ -38,6 +39,7 @@ class CityPerformanceService:
             raise Exception(f"Error analyzing city performance: {str(e)}")
 
     @staticmethod
+    @st.cache_data
     def show_charts(city_metrics):
         # Define color scheme
         color_scheme = alt.Scale(scheme='dark2')
@@ -78,6 +80,7 @@ class CityPerformanceService:
             st.altair_chart(bottom_chart, use_container_width=True)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes(city_metrics):
         st.subheader('City Performance Data')
         st.dataframe(city_metrics.style.format({
@@ -89,6 +92,7 @@ class CityPerformanceService:
         }))
 
     @staticmethod
+    @st.cache_data
     def show_insights(city_metrics):
         st.subheader('City Performance Insights')
         total_trips = city_metrics['Total Trips'].sum()
@@ -127,6 +131,7 @@ class CityPerformanceService:
         """)
 
     @staticmethod
+    @st.cache_data
     def show_overview(view_mode="Charts"):
         """
         Show overview of city performance metrics

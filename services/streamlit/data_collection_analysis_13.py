@@ -2,6 +2,7 @@ import streamlit as st
 
 class DataCollectionAnalysisService:
     @staticmethod
+    @st.cache_data
     def show_insights():
         """Display insights from data collection analysis."""
         st.markdown("## Data Collection Analysis Insights")

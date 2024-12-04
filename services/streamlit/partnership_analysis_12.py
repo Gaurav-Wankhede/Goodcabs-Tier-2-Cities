@@ -7,6 +7,7 @@ alt.themes.enable('dark')
 
 class PartnershipAnalysisService:
     @staticmethod
+    @st.cache_data
     def load_data():
         return {
             'fact_trips': pd.read_csv(DataPaths.FACT_TRIPS),
@@ -16,6 +17,7 @@ class PartnershipAnalysisService:
         }
 
     @staticmethod
+    @st.cache_data
     def calculate_partnership_metrics(data):
         trips_analysis = data['fact_trips'].merge(data['dim_date'][['date', 'day_type']], on='date')
         trips_analysis = trips_analysis.merge(data['dim_city'][['city_id', 'city_name']], on='city_id')
@@ -50,6 +52,7 @@ class PartnershipAnalysisService:
         return partnership_metrics.sort_values('partnership_score', ascending=False)
 
     @staticmethod
+    @st.cache_data
     def show_charts():
         data = PartnershipAnalysisService.load_data()
         partnership_metrics = PartnershipAnalysisService.calculate_partnership_metrics(data)
@@ -73,12 +76,14 @@ class PartnershipAnalysisService:
         st.altair_chart(chart, use_container_width=True)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes():
         data = PartnershipAnalysisService.load_data()
         partnership_metrics = PartnershipAnalysisService.calculate_partnership_metrics(data)
         st.dataframe(partnership_metrics)
 
     @staticmethod
+    @st.cache_data
     def show_insights():
         data = PartnershipAnalysisService.load_data()
         partnership_metrics = PartnershipAnalysisService.calculate_partnership_metrics(data)

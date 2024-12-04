@@ -5,6 +5,7 @@ from config.__init__ import DataPaths
 
 class DemandAnalysisService:
     @staticmethod
+    @st.cache_data
     def analyze_demand():
         """
         Analyze demand patterns across cities and time periods.
@@ -47,6 +48,7 @@ class DemandAnalysisService:
             raise Exception(f"Error analyzing demand: {str(e)}")
 
     @staticmethod
+    @st.cache_data
     def show_charts(monthly_trips):
         # Create heatmap using Altair
         heatmap = alt.Chart(monthly_trips).mark_rect().encode(
@@ -62,12 +64,14 @@ class DemandAnalysisService:
         st.altair_chart(heatmap)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes(results_df):
         # Display results in Streamlit
         st.write("## Peak and Low Demand Months by City")
         st.write(results_df)
 
     @staticmethod
+    @st.cache_data
     def show_insights(results_df):
         st.write("### Demand Analysis Insights")
         
@@ -109,6 +113,7 @@ class DemandAnalysisService:
         """)
 
     @staticmethod
+    @st.cache_data
     def show_overview(view_mode="Charts"):
         """
         Show overview of demand analysis

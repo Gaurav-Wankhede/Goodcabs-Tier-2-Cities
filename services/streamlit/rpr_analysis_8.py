@@ -7,6 +7,7 @@ import numpy as np
 
 class RPRAnalysisService:
     @staticmethod
+    @st.cache_data
     def analyze_rpr():
         """
         Analyze Repeat Passenger Rate (RPR%) by city and month.
@@ -112,6 +113,7 @@ class RPRAnalysisService:
             raise Exception(f"Error analyzing RPR metrics: {str(e)}")
 
     @staticmethod
+    @st.cache_data
     def get_rpr_data():
         """Get RPR (Repeat Passenger Rate) data for all cities."""
         fact_passenger = pd.read_csv(DataPaths.FACT_PASSENGER_SUMMARY)
@@ -126,6 +128,7 @@ class RPRAnalysisService:
         return city_rpr.sort_values('RPR%', ascending=False).reset_index(drop=True)
 
     @staticmethod
+    @st.cache_data
     def show_charts():
         """Display RPR analysis charts using Altair."""
         st.subheader("Repeat Passenger Rate (RPR%) Analysis")
@@ -164,6 +167,7 @@ class RPRAnalysisService:
             st.altair_chart(bottom_5_chart, use_container_width=True)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes():
         """Display RPR analysis data in tabular format."""
         st.subheader("RPR Performance Data")
@@ -193,6 +197,7 @@ class RPRAnalysisService:
             )
 
     @staticmethod
+    @st.cache_data
     def show_insights():
         """Display key insights from RPR analysis."""
         st.subheader("RPR Analysis Insights")

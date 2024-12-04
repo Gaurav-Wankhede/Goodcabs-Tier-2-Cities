@@ -5,6 +5,7 @@ from config.__init__ import DataPaths
 
 class MobilityTrendsAnalysisService:
     @staticmethod
+    @st.cache_data
     def get_mobility_data():
         """Get mobility trends analysis data."""
         # Read the required data
@@ -36,6 +37,7 @@ class MobilityTrendsAnalysisService:
         return city_analysis
 
     @staticmethod
+    @st.cache_data
     def show_charts():
         """Display mobility trends analysis charts."""
         st.subheader("Mobility Trends Analysis")
@@ -89,6 +91,7 @@ class MobilityTrendsAnalysisService:
             st.altair_chart(ev_savings_chart, use_container_width=True)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes():
         """Display mobility trends analysis data."""
         st.subheader("Mobility Trends Analysis Data")
@@ -113,6 +116,7 @@ class MobilityTrendsAnalysisService:
         )
 
     @staticmethod
+    @st.cache_data
     def show_insights():
         """Display key insights from mobility trends analysis."""
         st.subheader("Mobility Trends Analysis Insights")

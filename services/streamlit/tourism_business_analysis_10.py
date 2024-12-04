@@ -5,6 +5,7 @@ from config.__init__ import DataPaths
 
 class TourismBusinessAnalysisService:
     @staticmethod
+    @st.cache_data
     def get_tourism_data():
         """Get tourism and business analysis data."""
         fact_trips = pd.read_csv(DataPaths.FACT_TRIPS)
@@ -40,6 +41,7 @@ class TourismBusinessAnalysisService:
         return day_type_analysis, weekend_weekday_ratio, monthly_city, peak_months
 
     @staticmethod
+    @st.cache_data
     def show_charts():
         """Display tourism and business analysis charts."""
         st.subheader("Tourism vs Business Analysis")
@@ -127,6 +129,7 @@ class TourismBusinessAnalysisService:
             st.altair_chart(heatmap, use_container_width=True)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes():
         """Display tourism and business analysis data."""
         st.subheader("Tourism vs Business Analysis Data")
@@ -161,6 +164,7 @@ class TourismBusinessAnalysisService:
         )
 
     @staticmethod
+    @st.cache_data
     def show_insights():
         """Display key insights from tourism and business analysis."""
         st.subheader("Tourism vs Business Analysis Insights")

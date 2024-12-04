@@ -7,6 +7,7 @@ from config.__init__ import DataPaths
 
 class RatingAnalysisService:
     @staticmethod
+    @st.cache_data
     def show_charts():
         # Data Import
         fact_trips = pd.read_csv(DataPaths.FACT_TRIPS)
@@ -42,6 +43,7 @@ class RatingAnalysisService:
         st.altair_chart(heatmap, use_container_width=True)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes():
         # Data Import
         fact_trips = pd.read_csv(DataPaths.FACT_TRIPS)
@@ -80,6 +82,7 @@ class RatingAnalysisService:
         st.dataframe(city_overall.nsmallest(3, 'passenger_rating')[['passenger_rating']])
 
     @staticmethod
+    @st.cache_data
     def show_insights():
         # Calculate insights
         fact_trips = pd.read_csv(DataPaths.FACT_TRIPS)

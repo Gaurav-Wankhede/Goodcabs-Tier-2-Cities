@@ -5,6 +5,7 @@ from config.__init__ import DataPaths
 
 class RPRFactorsAnalysisService:
     @staticmethod
+    @st.cache_data
     def get_factors_data():
         """Get RPR factors analysis data."""
         # Read the required data
@@ -40,6 +41,7 @@ class RPRFactorsAnalysisService:
         return city_analysis, correlation_matrix
 
     @staticmethod
+    @st.cache_data
     def show_charts():
         """Display RPR factors analysis charts."""
         st.subheader("RPR Factors Analysis Charts")
@@ -95,6 +97,7 @@ class RPRFactorsAnalysisService:
             st.altair_chart(scatter, use_container_width=True)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes():
         """Display RPR factors analysis data."""
         st.subheader("RPR Factors Analysis Data")
@@ -123,6 +126,7 @@ class RPRFactorsAnalysisService:
         )
 
     @staticmethod
+    @st.cache_data
     def show_insights():
         """Display key insights from RPR factors analysis."""
         st.subheader("RPR Factors Analysis Insights")

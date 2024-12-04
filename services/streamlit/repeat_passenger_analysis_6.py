@@ -7,6 +7,7 @@ import numpy as np
 
 class RepeatPassengerAnalysisService:
     @staticmethod
+    @st.cache_data
     def analyze_passenger_frequency():
         """
         Analyze repeat passenger frequency patterns across cities.
@@ -48,6 +49,7 @@ class RepeatPassengerAnalysisService:
             raise Exception(f"Error analyzing repeat passenger patterns: {str(e)}")
 
     @staticmethod
+    @st.cache_data
     def analyze_repeat_passengers():
         # Load data
         repeat_dist = pd.read_csv(DataPaths.DIM_REPEAT_TRIP_DISTRIBUTION)
@@ -79,6 +81,7 @@ class RepeatPassengerAnalysisService:
         return trip_freq_pct, high_freq_analysis
 
     @staticmethod
+    @st.cache_data
     def show_charts(trip_freq_pct, high_freq_analysis):
         col1, col2 = st.columns(2)
 
@@ -117,6 +120,7 @@ class RepeatPassengerAnalysisService:
             st.altair_chart(bar_chart, use_container_width=True)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes(trip_freq_pct, high_freq_analysis):
         # Display detailed frequency distribution table
         freq_dist = trip_freq_pct.pivot_table(
@@ -140,6 +144,7 @@ class RepeatPassengerAnalysisService:
         st.dataframe(high_freq_result)
 
     @staticmethod
+    @st.cache_data
     def show_insights(high_freq_analysis):
         st.write("### Repeat Passenger Analysis Insights")
 

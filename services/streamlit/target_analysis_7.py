@@ -5,6 +5,7 @@ from config.__init__ import DataPaths
 
 class TargetAnalysisService:
     @staticmethod
+    @st.cache_data
     def calculate_performance(actual, target):
         """Calculate performance metrics and status."""
         diff = ((actual - target) / target * 100).round(2)
@@ -17,6 +18,7 @@ class TargetAnalysisService:
         return diff, status
 
     @staticmethod
+    @st.cache_data
     def get_performance_data():
         """Get performance data for all cities."""
         # Data Import using DataPaths
@@ -82,6 +84,7 @@ class TargetAnalysisService:
         return pd.DataFrame(performance_data).sort_values('City')
 
     @staticmethod
+    @st.cache_data
     def show_charts():
         """Display performance charts using Altair."""
         st.subheader("Target Achievement Analysis")
@@ -141,6 +144,7 @@ class TargetAnalysisService:
         st.altair_chart(heatmap, use_container_width=True)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes():
         """Display performance data in tabular format."""
         st.subheader("Performance Metrics by City")
@@ -169,6 +173,7 @@ class TargetAnalysisService:
             st.dataframe(ratings_df, use_container_width=True)
 
     @staticmethod
+    @st.cache_data
     def show_insights():
         """Display key insights from the performance data."""
         st.subheader("Key Performance Insights")

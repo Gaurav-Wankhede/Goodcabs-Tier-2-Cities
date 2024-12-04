@@ -5,6 +5,7 @@ from config.__init__ import DataPaths
 
 class DayTypeAnalysisService:
     @staticmethod
+    @st.cache_data
     def analyze_day_types():
         """
         Analyze patterns between weekdays and weekends
@@ -30,6 +31,7 @@ class DayTypeAnalysisService:
             raise Exception(f"Error analyzing day types: {str(e)}")
 
     @staticmethod
+    @st.cache_data
     def show_charts(day_type_pivot):
         # Create visualization using Altair
         day_type_ratios = day_type_pivot.reset_index().melt(id_vars='city_name', value_vars=['Weekday_Ratio', 'Weekend_Ratio'], var_name='Day Type', value_name='Ratio')
@@ -46,6 +48,7 @@ class DayTypeAnalysisService:
         st.altair_chart(chart)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes(day_type_pivot):
         # Format the numbers
         formatted_pivot = day_type_pivot.copy()
@@ -60,6 +63,7 @@ class DayTypeAnalysisService:
         st.dataframe(formatted_pivot)
 
     @staticmethod
+    @st.cache_data
     def show_insights(day_type_pivot):
         st.subheader("Day Type Analysis Insights")
 
@@ -116,6 +120,7 @@ class DayTypeAnalysisService:
         """)
 
     @staticmethod
+    @st.cache_data
     def show_overview(view_mode="Charts"):
         """
         Show overview of day type analysis

@@ -5,12 +5,14 @@ from config.__init__ import DataPaths
 
 class FareAnalysisService:
     @staticmethod
+    @st.cache_data
     def _load_data():
         trips_df = pd.read_csv(DataPaths.FACT_TRIPS)
         cities_df = pd.read_csv(DataPaths.DIM_CITY)
         return trips_df, cities_df
 
     @staticmethod
+    @st.cache_data
     def _calculate_metrics(trips_df, cities_df):
         city_metrics = trips_df.groupby('city_id').agg({
             'fare_amount': 'mean',
@@ -21,6 +23,7 @@ class FareAnalysisService:
         return city_metrics
 
     @staticmethod
+    @st.cache_data
     def show_charts():
         trips_df, cities_df = FareAnalysisService._load_data()
         city_metrics = FareAnalysisService._calculate_metrics(trips_df, cities_df)
@@ -44,6 +47,7 @@ class FareAnalysisService:
         st.altair_chart(scatter_plot, use_container_width=True)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes():
         trips_df, cities_df = FareAnalysisService._load_data()
         city_metrics = FareAnalysisService._calculate_metrics(trips_df, cities_df)
@@ -54,6 +58,7 @@ class FareAnalysisService:
                      .round(2))
 
     @staticmethod
+    @st.cache_data
     def show_insights():
         trips_df, cities_df = FareAnalysisService._load_data()
         city_metrics = FareAnalysisService._calculate_metrics(trips_df, cities_df)

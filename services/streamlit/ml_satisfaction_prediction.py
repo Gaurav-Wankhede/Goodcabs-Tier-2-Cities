@@ -16,11 +16,13 @@ class MLSatisfactionPredictionService:
     SCALER_PATH = "models/scaler.joblib"
     
     @staticmethod
+    @st.cache_data
     def ensure_model_directory():
         """Ensure the models directory exists"""
         os.makedirs(os.path.dirname(MLSatisfactionPredictionService.MODEL_PATH), exist_ok=True)
     
     @staticmethod
+    @st.cache_data
     def calculate_confidence_score(prediction, similar_trips_data, model_reliability):
         """
         Calculate a comprehensive confidence score based on multiple factors:
@@ -55,6 +57,7 @@ class MLSatisfactionPredictionService:
         return min(total_confidence * 100, 100)
 
     @staticmethod
+    @st.cache_data
     def get_satisfaction_status(satisfaction_score, confidence_score):
         """
         Get detailed satisfaction status with industry-standard metrics
@@ -93,6 +96,7 @@ class MLSatisfactionPredictionService:
         }
 
     @staticmethod
+    @st.cache_data
     def get_actionable_insights(prediction_input, satisfaction_score):
         """
         Generate detailed, actionable insights based on the prediction
@@ -137,6 +141,7 @@ class MLSatisfactionPredictionService:
         ]
 
     @staticmethod
+    @st.cache_data
     def train_model():
         """
         Train the customer satisfaction prediction model with enhanced evaluation
@@ -236,6 +241,7 @@ class MLSatisfactionPredictionService:
             raise Exception(f"Error training satisfaction prediction model: {str(e)}")
 
     @staticmethod
+    @st.cache_data
     def predict_satisfaction(prediction_input):
         """
         Predict customer satisfaction with comprehensive analysis
@@ -314,6 +320,7 @@ class MLSatisfactionPredictionService:
             raise Exception(f"Error predicting satisfaction: {str(e)}")
 
     @staticmethod
+    @st.cache_data
     def show_charts():
         st.subheader("ML Satisfaction Prediction Charts")
         
@@ -353,6 +360,7 @@ class MLSatisfactionPredictionService:
             st.altair_chart(accuracy_chart, use_container_width=True)
 
     @staticmethod
+    @st.cache_data
     def show_dataframes():
         st.subheader("ML Satisfaction Prediction Data")
         
@@ -368,6 +376,7 @@ class MLSatisfactionPredictionService:
         st.dataframe(prediction_data)
 
     @staticmethod
+    @st.cache_data
     def show_insights():
         st.subheader("ML Satisfaction Prediction Insights")
         
