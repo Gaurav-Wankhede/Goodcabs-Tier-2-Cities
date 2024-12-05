@@ -1,23 +1,40 @@
-# Goodcabs Performance Dashboard
+# Goodcabs Performance Dashboard 🚖
 
-## What is this project?
+## Overview
 
-The Goodcabs Performance Dashboard is a comprehensive data analysis and visualization tool designed to modernize and enhance the performance tracking of Goodcabs in tier-2 cities. Built using Streamlit and Altair, this application provides in-depth insights into various operational metrics, passenger behaviors, and strategic recommendations to improve service quality and market positioning.
+The **Goodcabs Performance Dashboard** is an advanced data analysis and visualization application designed to enhance operational excellence for Goodcabs in tier-2 cities across India. Initially, the project began with data analysis and prototyping using **Python Notebooks**, later evolving into a fully functional **Streamlit App** and a robust **FastAPI** backend. This dashboard delivers actionable insights into key performance metrics, helping improve trip volumes, passenger satisfaction, and market positioning.
 
-## How does it work?
+### Features
 
-The dashboard is structured into several key analysis categories:
-- **City Performance Analysis**: Evaluates city-specific metrics and trends.
-- **Demand Analysis**: Analyzes demand fluctuations and patterns.
-- **Passenger Behavior Analysis**: Studies passenger ratings and repeat behavior.
-- **Monthly Target Achievement Analysis**: Assesses goal attainment across metrics.
-- **Strategic Recommendations**: Offers data-driven strategies for improvement.
+1. **City Performance Analysis**:
+   - Evaluate city-specific metrics and trends.
+   - Identify top and bottom-performing cities.
 
-Each category is equipped with interactive charts, dataframes, and insights, allowing users to explore data dynamically and make informed decisions.
+2. **Demand Analysis**:
+   - Analyze demand fluctuations across months and day types.
+   - Compare weekday vs. weekend demand.
 
-## Installation Steps
+3. **Passenger Behavior Analysis**:
+   - Understand passenger ratings and repeat behaviors.
+   - Analyze city-wise repeat passenger frequency.
 
-To set up the Goodcabs Performance Dashboard locally, follow these steps:
+4. **Target Achievement**:
+   - Track performance against monthly trip targets.
+   - Categorize results as "Above Target" or "Below Target."
+
+5. **Strategic Insights**:
+   - Data-driven recommendations for operational improvements.
+   - Emerging trends in mobility and partnership opportunities.
+
+---
+
+## Deployment
+
+Live Application: [Goodcabs Performance Dashboard](https://goodcabs-tier-2-cities.onrender.com)
+
+---
+
+## Setup Instructions
 
 1. **Clone the Repository**:
    ```bash
@@ -26,42 +43,50 @@ To set up the Goodcabs Performance Dashboard locally, follow these steps:
    ```
 
 2. **Install Dependencies**:
-    Ensure virtual environment is activated:
-    ```bash
-    python3 -m venv env
-    or
-    python -m venv env
-    ```
-    ```bash
-    source env/bin/activate 
-    or
-    ./env/Scripts/activate.ps1 #for Powershell
-    or
-    ./env/Scripts/activate #for CMD
-    ```
-   Ensure you have Python installed, then run:
-   ```bash
-   pip install -r requirements.txt
-   ```
+   - Set up a virtual environment:
+     ```bash
+     python3 -m venv env
+     source env/bin/activate  # Linux/MacOS
+     ./env/Scripts/activate   # Windows
+     ```
+   - Install required packages:
+     ```bash
+     pip install -r requirements.txt
+     ```
 
 3. **Run the Application**:
-   Start the Streamlit app using:
-   ```bash
-   streamlit run streamlit_app.py
-   ```
-   For FastAPI:
-   ```bash
-   uvicorn main:app --reload
+   - Start the **Streamlit App**:
+     ```bash
+     streamlit run streamlit_app.py
+     ```
+   - Start the **FastAPI** backend (if applicable):
+     ```bash
+     uvicorn main:app --reload
+     ```
 
-## Some Analysis
+---
 
-The dashboard leverages advanced data processing and visualization techniques to provide insights such as:
-- **Environmental Impact**: Evaluates carbon footprint and potential savings from electric vehicle adoption.
-- **Passenger Ratings**: Analyzes city-wise ratings to identify top and bottom performers.
-- **Repeat Passenger Rates**: Studies the frequency of repeat trips and factors influencing them.
-- **Operational Metrics**: Tracks key performance indicators like trip counts, passenger growth, and satisfaction levels.
+## Key Insights
 
-## Links
+- **Trip Efficiency**: City-wise fare and trip summaries.
+- **Passenger Loyalty**: Analysis of repeat passenger frequency.
+- **Revenue Trends**: Identify months with peak revenues by city.
+- **Environmental Impact**: Evaluate the potential benefits of EV adoption.
 
-- **LinkedIn**: [https://www.linkedin.com/in/wankhede-gaurav/](https://www.linkedin.com/in/wankhede-gaurav/)
-- **Portfolio**: [https://gaurav-wankhede.vercel.app/](https://gaurav-wankhede.vercel.app/)
+---
+
+## Technologies Used
+
+- **Streamlit**: For creating an interactive and user-friendly dashboard.
+- **FastAPI**: For building a high-performance backend.
+- **Altair**: For data visualization.
+- **Python**: Backend logic and analysis services.
+- **Jupyter Notebooks**: For initial data analysis and prototyping.
+
+---
+
+## Contact
+
+- **Developer**: [Gaurav Wankhede](https://www.linkedin.com/in/wankhede-gaurav/)
+- **Portfolio**: [gaurav-wankhede.vercel.app](https://gaurav-wankhede.vercel.app)
+- **GitHub**: [Gaurav-Wankhede](https://github.com/Gaurav-Wankhede)
